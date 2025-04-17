@@ -1,0 +1,21 @@
+id: actuator-exposure
+
+info:
+  name: Detection actuator/ Exposure in Spring
+  author: Shiroe
+  severity: critical
+  tags: exposure, spring
+
+requests:
+  - method: GET
+    redirects: true
+    path:
+      - "{{BaseURL}}/actuator/"
+      - "{{BaseURL}}/actuator;/"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "actuator"
